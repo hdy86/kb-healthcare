@@ -1,0 +1,29 @@
+/*======================================*/
+/*----------- COMMON LAYOUTS -----------*/
+/*======================================*/
+.inner {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header {
+  padding: 20px 0;
+  color: var(--surface);
+  background-color: var(--primary);
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  .icon_btn {
+    display: block;
+    font-size: 24px;
+  }
+}

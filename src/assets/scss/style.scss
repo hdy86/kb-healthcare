@@ -1,3 +1,6 @@
 // common
 @use "./common/_globals"; // globals
 @use "./common/_fonts"; // fonts
+
+// pages
+@use "./pages/_shared"; // layout
