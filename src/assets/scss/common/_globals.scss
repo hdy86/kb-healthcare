@@ -3,25 +3,25 @@
 /*======================================*/
 :root {
   --primary: #4a90e2;
+  --hover: #3a78c2;
+  --disabled: #8fa8bf;
   --secondary: #5bc8c4;
   --accent: #ffd166;
   --success: #65d69e;
-  --neutral: #8fa8bf;
 
-  --text: #1e293b;
+  --white: #ffffff;
+
+  --text: #334155;
   --text-muted: #64748b;
-  --background: #f8fafc;
-  --surface: #ffffff;
+  --background: #f7fbff;
+  --surface: #dddddd;
   --border: #e2e8f0;
-
-  --disabled: #eeeeee;
-  --text: #222222;
 
   --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --pretandard: "Pretandard", sans-serif;
 
-  font: 18px/145% var(--pretandard);
+  font-family: var(--pretandard);
   font-size: 16px;
   line-height: 1.4;
   letter-spacing: -0.01rem;
@@ -31,4 +31,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  * {
+    transition: all 0.3s;
+  }
 }

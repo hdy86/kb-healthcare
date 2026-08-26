@@ -1,0 +1,58 @@
+/*======================================*/
+/*------------- TASK PAGE --------------*/
+/*======================================*/
+.task_list {
+  margin: 60px 0;
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--background);
+  text-align: left;
+
+  li {
+    padding: 20px 0;
+    border-bottom: 2px dashed var(--surface);
+
+    p {
+      font-weight: 500;
+    }
+    span {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  }
+}
+
+.task_detail {
+  position: relative;
+  margin: 60px 0;
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background-color: var(--background);
+  text-align: left;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  p {
+    min-height: 200px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .del_btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--hover);
+    }
+  }
+}

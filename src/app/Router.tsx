@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "@app/dashboard/page";
 import Task from "@app/task/page";
 import TaskDetail from "@app/task/detail/page";
-import Login from "@app/login/page";
-import Mypage from "@app/mypage/page";
+import Login from "@app/auth/login/page";
+import Mypage from "@app/auth/mypage/page";
 import * as ROUTERS from "@constants/routers";
 
 function Router() {

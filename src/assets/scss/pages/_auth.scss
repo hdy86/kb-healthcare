@@ -1,0 +1,39 @@
+/*======================================*/
+/*------------- AUTH PAGE --------------*/
+/*======================================*/
+.form_area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 320px;
+  padding: 60px 0;
+  margin: 0 auto;
+}
+
+.label_input_area {
+  width: 100%;
+}
+
+.mypage_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 60px 0;
+  text-align: left;
+
+  span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    padding: 8px;
+    background-color: var(--background);
+    margin-top: 8px;
+    border: 1px solid var(--surface);
+    border-radius: 4px;
+  }
+}
