@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as ROUTERS from "@constants/routers";
 
-function Page() {
+export default function Page() {
   return (
     <>
       <h2>대시보드</h2>
@@ -27,5 +27,3 @@ function Page() {
     </>
   );
 }
-
-export default Page;

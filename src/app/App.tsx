@@ -1,12 +1,14 @@
+import { Toaster } from "react-hot-toast";
 import Router from "@app/Router";
 import Layout from "@components/shared/layout";
+import FullLoading from "@components/shared/fullLoading";
 
-function App() {
+export default function App() {
   return (
     <Layout>
       <Router />
+      <Toaster />
+      <FullLoading />
     </Layout>
   );
 }
-
-export default App;

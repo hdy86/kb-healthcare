@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-function Page() {
+export default function Page() {
   return (
     <>
       <h2>할일 상세</h2>
@@ -16,5 +16,3 @@ function Page() {
     </>
   );
 }
-
-export default Page;
