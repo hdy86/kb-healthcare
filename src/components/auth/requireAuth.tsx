@@ -17,12 +17,8 @@ export default function RequireAuth({ children }: RequireAuthProps) {
   const isAuthenticated = useAuth();
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      const skipLogout = consumeSkipToast();
-
-      if (!skipLogout) {
-        toast.error("로그인이 필요한 페이지입니다.");
-      }
+    if (!isAuthenticated && !consumeSkipToast()) {
+      toast.error("로그인이 필요한 페이지입니다.");
     }
   }, [isAuthenticated]);
 

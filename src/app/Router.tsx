@@ -5,6 +5,7 @@ import TaskDetail from "@app/task/detail/page";
 import Login from "@app/auth/login/page";
 import Mypage from "@app/auth/mypage/page";
 import RequireAuth from "@components/auth/requireAuth";
+import GuestOnly from "@components/auth/guestOnly";
 import * as ROUTERS from "@constants/routers";
 
 export default function Router() {
@@ -34,7 +35,14 @@ export default function Router() {
           </RequireAuth>
         }
       />
-      <Route path={ROUTERS.LOGIN} element={<Login />} />
+      <Route
+        path={ROUTERS.LOGIN}
+        element={
+          <GuestOnly>
+            <Login />
+          </GuestOnly>
+        }
+      />
       <Route
         path={ROUTERS.MYPAGE}
         element={

@@ -31,6 +31,10 @@ export default function Page() {
             <span>{data?.name || "-"}</span>
           </li>
           <li>
+            <p>이메일</p>
+            <span>{data?.email || "-"}</span>
+          </li>
+          <li>
             <p>메모</p>
             <span>{data?.memo || "-"}</span>
           </li>

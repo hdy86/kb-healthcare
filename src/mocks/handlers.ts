@@ -115,6 +115,7 @@ export const handlers = [
 
     return HttpResponse.json<UserResponse>({
       name: MOCK_USER.name,
+      email: MOCK_USER.email,
       memo: MOCK_USER.memo,
     });
   }),

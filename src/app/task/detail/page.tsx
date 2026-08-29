@@ -19,7 +19,9 @@ export default function Page() {
 
   // ==================== API ====================
   const { isLoading, data, error } = useTaskDetail(id);
-  const { mutate, isPending } = useDeleteTask();
+  const { mutate, isPending, isSuccess } = useDeleteTask();
+
+  const showNotFound = !isSuccess && error instanceof ApiError && error.status === 404;
 
   const onDelete = () => {
     mutate(id, {
@@ -41,7 +43,7 @@ export default function Page() {
 
       {isLoading ? (
         <Loading />
-      ) : error instanceof ApiError && error.status === 404 ? (
+      ) : showNotFound ? (
         <div className='no_task_detail'>
           <p>해당 할 일을 찾을 수 없습니다.</p>
           <button type='button' className='btn sm' onClick={() => navigate(ROUTERS.TASK)}>
