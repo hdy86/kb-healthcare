@@ -25,6 +25,7 @@ export default function Page() {
     mutate(id, {
       onSuccess: () => {
         setDeleteModalOpen(false);
+        setConfirmValue("");
         toast.success("삭제되었습니다.");
         navigate(ROUTERS.TASK);
       },
@@ -80,7 +81,10 @@ export default function Page() {
             <button
               type='button'
               className='btn type02 sm'
-              onClick={() => setDeleteModalOpen(false)}
+              onClick={() => {
+                setDeleteModalOpen(false);
+                setConfirmValue("");
+              }}
               disabled={isPending}
             >
               취소
