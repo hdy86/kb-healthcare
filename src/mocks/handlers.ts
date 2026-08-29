@@ -24,6 +24,11 @@ function refreshTokenSetCookie(refreshToken: string) {
   return `token=${refreshToken}; Path=/; Max-Age=${maxAge}`;
 }
 
+/** 로그아웃 시 refreshToken 쿠키를 즉시 만료시키는 Set-Cookie 값 */
+function expiredTokenSetCookie() {
+  return `token=; Path=/; Max-Age=0`;
+}
+
 /** Authorization: Bearer {token} 헤더에서 유효한 accessToken을 검증합니다. */
 function requireBearerAuth(request: Request): true | HttpResponse<ErrorResponse> {
   const authHeader = request.headers.get("authorization");
@@ -94,6 +99,14 @@ export const handlers = [
       });
     },
   ),
+
+  // POST /api/logout
+  http.post("/api/logout", () => {
+    return new HttpResponse(null, {
+      status: 204,
+      headers: { "Set-Cookie": expiredTokenSetCookie() },
+    });
+  }),
 
   // GET /api/user
   http.get<never, never, UserResponse | ErrorResponse>("/api/user", ({ request }) => {

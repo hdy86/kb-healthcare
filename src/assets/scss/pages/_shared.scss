@@ -87,6 +87,9 @@ h2 {
   &:disabled {
     background-color: var(--disabled);
   }
+  &.type02 {
+    background-color: var(--error);
+  }
   &.sm {
     height: 36px;
   }
@@ -123,6 +126,12 @@ h2 {
     }
     .md_cont {
       margin: 16px 0 32px;
+    }
+    .md_btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
   }
 }

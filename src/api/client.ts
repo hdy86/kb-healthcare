@@ -3,7 +3,7 @@ import type { AuthTokenResponse, ErrorResponse } from "./types";
 import { store } from "@stores/index";
 
 /**
- * accessToken은 메모리에만 보관합니다(XSS 대비 localStorage 지양).
+ * accessToken은 메모리에만 보관합니다.(XSS 대비 localStorage 지양)
  * 새로고침 시 유실되므로, 앱 부트스트랩 시점에 /api/refresh를 한 번 호출해 재발급받는 흐름을 App 최상단에서 태워줍니다.
  */
 export function setAccessToken(token: string | null) {
@@ -119,5 +119,18 @@ export async function apiFetch<T>(path: string, options: RequestOptions = {}): P
       throw new ApiError(status, errorMessage);
     }
     throw err;
+  }
+}
+
+/**
+ * accessToken은 즉시(동기적으로) 로컬 상태에서 제거해 화면이 바로 로그아웃 상태로 반영되게 하고, 서버(/api/logout) 호출은 refreshToken 쿠키를 무효화하기 위해 best-effort로 시도합니다.
+ * 이 요청이 실패하더라도 (네트워크 문제, 이미 만료된 세션 등) 클라이언트 상태는 이미 정리된 뒤이므로 화면 동작에는 영향이 없습니다.
+ */
+export async function clearSession(): Promise<void> {
+  setAccessToken(null);
+  try {
+    await apiFetch("/api/logout", { method: "POST", retryOnUnauthorized: false });
+  } catch {
+    console.log("로그아웃에 실패했습니다.");
   }
 }
