@@ -72,3 +72,12 @@
     }
   }
 }
+
+.no_task_detail {
+  margin: 60px 0;
+  p {
+    margin-bottom: 60px;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+}

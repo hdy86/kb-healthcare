@@ -1,12 +1,12 @@
 interface ModalProps {
   open: boolean;
-  onClose: () => void;
+  onConfirm?: () => void;
   title?: string;
   btns?: React.ReactNode;
   children?: React.ReactNode;
 }
 
-export default function Modal({ open, onClose, title, btns, children }: ModalProps) {
+export default function Modal({ open, onConfirm, title, btns, children }: ModalProps) {
   return open ? (
     <div className='modal_wrap'>
       <div className='modal_area'>
@@ -17,9 +17,11 @@ export default function Modal({ open, onClose, title, btns, children }: ModalPro
         )}
         <div className='md_cont'>{children}</div>
         <div className='md_btns'>
-          <button type='button' className='btn sm' onClick={onClose}>
-            확인
-          </button>
+          {onConfirm && (
+            <button type='button' className='btn sm' onClick={onConfirm}>
+              확인
+            </button>
+          )}
           {btns}
         </div>
       </div>

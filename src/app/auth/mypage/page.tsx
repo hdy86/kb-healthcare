@@ -31,8 +31,8 @@ export default function Page() {
             <span>{data?.name || "-"}</span>
           </li>
           <li>
-            <p>이메일</p>
-            <span>{data?.email || "-"}</span>
+            <p>메모</p>
+            <span>{data?.memo || "-"}</span>
           </li>
           <li>
             <button type='button' className='btn type02 w-full' onClick={() => setLogoutOpen(true)}>
@@ -41,10 +41,11 @@ export default function Page() {
           </li>
         </ul>
       )}
+
       {/* MODAL */}
       <Modal
         open={logoutOpen}
-        onClose={onLogout}
+        onConfirm={onLogout}
         title='로그아웃'
         btns={
           <button type='button' className='btn type02 sm' onClick={() => setLogoutOpen(false)}>

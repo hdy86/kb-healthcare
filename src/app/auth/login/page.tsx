@@ -84,7 +84,7 @@ export default function Page() {
       {/* MODAL */}
       <Modal
         open={errorModalOpen}
-        onClose={() => {
+        onConfirm={() => {
           setErrorModalOpen(false);
           reset();
         }}
