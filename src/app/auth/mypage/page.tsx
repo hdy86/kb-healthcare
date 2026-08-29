@@ -2,13 +2,14 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useUser } from "@api/hooks/useUser";
 import { useLogout } from "@hooks/useLogout";
+import Loading from "@components/shared/loading";
 import Modal from "@components/shared/modal";
 
 export default function Page() {
   const [logoutOpen, setLogoutOpen] = useState(false);
 
   // ==================== API ====================
-  const { data } = useUser();
+  const { data, isLoading } = useUser();
   const logout = useLogout();
 
   const onLogout = () => {
@@ -21,22 +22,25 @@ export default function Page() {
     <>
       <h2>회원정보</h2>
 
-      <ul className='mypage_list'>
-        <li>
-          <p>사용자명</p>
-          <span>{data?.name || "-"}</span>
-        </li>
-        <li>
-          <p>이메일</p>
-          <span>{data?.email || "-"}</span>
-        </li>
-        <li>
-          <button type='button' className='btn type02 w-full' onClick={() => setLogoutOpen(true)}>
-            로그아웃
-          </button>
-        </li>
-      </ul>
-
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <ul className='mypage_list'>
+          <li>
+            <p>사용자명</p>
+            <span>{data?.name || "-"}</span>
+          </li>
+          <li>
+            <p>이메일</p>
+            <span>{data?.email || "-"}</span>
+          </li>
+          <li>
+            <button type='button' className='btn type02 w-full' onClick={() => setLogoutOpen(true)}>
+              로그아웃
+            </button>
+          </li>
+        </ul>
+      )}
       {/* MODAL */}
       <Modal
         open={logoutOpen}
