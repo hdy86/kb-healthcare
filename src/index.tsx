@@ -5,6 +5,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./app/App.tsx";
+import { refreshAccessToken } from "@api/client";
 
 async function enableMocking() {
   if (import.meta.env.MODE !== "development") return;
@@ -12,7 +13,13 @@ async function enableMocking() {
   return worker.start({ onUnhandledRequest: "bypass" });
 }
 
-enableMocking().then(() => {
+// Mocking & refreshToken API
+async function bootstrap() {
+  await enableMocking();
+  await refreshAccessToken();
+}
+
+bootstrap().finally(() => {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <BrowserRouter>
