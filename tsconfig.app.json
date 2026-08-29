@@ -24,10 +24,13 @@
 
     "paths": {
       "@/*": ["./src/*"],
+      "@api/*": ["./src/api/*"],
       "@app/*": ["./src/app/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"]
+      "@constants/*": ["./src/constants/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@stores/*": ["./src/stores/*"]
     }
   },
   "include": ["src"]

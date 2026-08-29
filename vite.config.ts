@@ -8,10 +8,13 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), babel({ presets: [reactCompilerPreset()] })],
   resolve: {
     alias: [
+      { find: "@api", replacement: "/src/api" },
       { find: "@app", replacement: "/src/app" },
       { find: "@assets", replacement: "/src/assets" },
       { find: "@components", replacement: "/src/components" },
       { find: "@constants", replacement: "/src/constants" },
+      { find: "@hooks", replacement: "/src/hooks" },
+      { find: "@stores", replacement: "/src/stores" },
     ],
   },
 });
