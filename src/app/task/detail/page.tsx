@@ -25,8 +25,8 @@ export default function Page() {
     mutate(id, {
       onSuccess: () => {
         setDeleteModalOpen(false);
-        navigate("/task");
         toast.success("삭제되었습니다.");
+        navigate(ROUTERS.TASK);
       },
       onError: (err) => {
         toast.error(err instanceof ApiError ? err.errorMessage : "삭제에 실패했습니다.");

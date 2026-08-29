@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Layout>
       <Router />
-      <Toaster />
+      <Toaster position='bottom-center' />
       <FullLoading />
     </Layout>
   );

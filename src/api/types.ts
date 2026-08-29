@@ -10,7 +10,6 @@ export interface AuthTokenResponse {
 
 export interface UserResponse {
   name: string;
-  email: string;
   memo: string;
 }
 

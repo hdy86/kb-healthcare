@@ -14,6 +14,27 @@ export function getAccessToken() {
   return store.getState().accessToken;
 }
 
+/**
+ * "로그인 안 됨" 상태가 감지됐을 때(RequireAuth 등), 그게 세션 만료로 인한 것인지 아니면 방금 사용자가 직접 로그아웃한 것인지 구분하기 위한 일회성 플래그입니다.
+ *
+ * 사용 흐름:
+ *   1. useLogout()이 로그아웃을 시작하며 markLogout() 호출
+ *   2. RequireAuth가 !isAuthenticated를 감지했을 때 consumeSkipToast()로 확인
+ *      → true였으면(의도된 로그아웃) 안내 토스트를 띄우지 않고 조용히 리다이렉트
+ *      → false였으면(세션 만료/미로그인 상태로 직접 접근) 안내 토스트를 띄움
+ */
+let skipAuthToast = false;
+
+export function markLogout() {
+  skipAuthToast = true;
+}
+
+export function consumeSkipToast(): boolean {
+  const value = skipAuthToast;
+  skipAuthToast = false; // 한 번 읽으면 바로 초기화 (다음 판단엔 영향 없게)
+  return value;
+}
+
 export class ApiError extends Error {
   status: number;
   errorMessage: string;

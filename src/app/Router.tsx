@@ -10,9 +10,30 @@ import * as ROUTERS from "@constants/routers";
 export default function Router() {
   return (
     <Routes>
-      <Route path={ROUTERS.DASHBOARD} element={<Dashboard />} />
-      <Route path={ROUTERS.TASK} element={<Task />} />
-      <Route path={ROUTERS.TASK_DETAIL} element={<TaskDetail />} />
+      <Route
+        path={ROUTERS.DASHBOARD}
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path={ROUTERS.TASK}
+        element={
+          <RequireAuth>
+            <Task />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path={ROUTERS.TASK_DETAIL}
+        element={
+          <RequireAuth>
+            <TaskDetail />
+          </RequireAuth>
+        }
+      />
       <Route path={ROUTERS.LOGIN} element={<Login />} />
       <Route
         path={ROUTERS.MYPAGE}

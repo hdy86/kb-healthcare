@@ -14,8 +14,8 @@ export default function Page() {
 
   const onLogout = () => {
     setLogoutOpen(false);
-    logout();
     toast.success("로그아웃 완료!");
+    logout();
   };
 
   return (

@@ -2,11 +2,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "../keys";
 import { deleteTask } from "../tasks";
 
-/**
- * 사용 예:
- *   const { mutate, isPending } = useDeleteTask();
- *   mutate(id, { onSuccess: () => navigate("/task") });
- */
 export function useDeleteTask() {
   const queryClient = useQueryClient();
 

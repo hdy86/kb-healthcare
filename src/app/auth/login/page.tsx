@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { ApiError } from "@api/client";
 import { useSignIn } from "@api/hooks/useSignin";
+import * as ROUTERS from "@constants/routers";
 import * as SCHEMAS from "@constants/schemas";
 import Modal from "@components/shared/modal";
 
@@ -40,8 +41,8 @@ export default function Page() {
   const onSubmit = async (data: FormData) => {
     mutate(data, {
       onSuccess: () => {
-        navigate("/", { replace: true });
         toast.success("로그인 성공!");
+        navigate(ROUTERS.DASHBOARD, { replace: true });
       },
       onError: () => {
         setErrorModalOpen(true);
