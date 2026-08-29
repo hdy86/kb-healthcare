@@ -21,6 +21,22 @@
       margin-top: 8px;
       font-size: 14px;
       color: var(--text-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &.no_data {
+      text-align: center;
+      border-bottom: 0;
+      span {
+        margin: 0;
+        padding: 40px 0;
+      }
+    }
+    &.observer_area {
+      padding: 0;
+      border-bottom: 0;
     }
   }
 }

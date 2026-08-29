@@ -9,7 +9,7 @@ export default function Page() {
   const [logoutOpen, setLogoutOpen] = useState(false);
 
   // ==================== API ====================
-  const { data, isLoading } = useUser();
+  const { isLoading, data } = useUser();
   const logout = useLogout();
 
   const onLogout = () => {

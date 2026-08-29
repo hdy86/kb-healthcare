@@ -5,7 +5,7 @@ import Loading from "@components/shared/loading";
 
 export default function Page() {
   // ==================== API ====================
-  const { data, isLoading } = useDashboard();
+  const { isLoading, data } = useDashboard();
 
   return (
     <>
