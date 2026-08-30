@@ -15,7 +15,7 @@ export default function GuestOnly({ children }: GuestOnlyProps) {
   const isAuthenticated = useAuth();
 
   if (isAuthenticated) {
-    return <Navigate to={ROUTERS.MYPAGE} replace />;
+    return <Navigate to={ROUTERS.DASHBOARD} replace />;
   }
 
   return <>{children}</>;
