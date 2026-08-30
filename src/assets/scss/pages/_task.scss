@@ -81,3 +81,22 @@
     color: var(--text-muted);
   }
 }
+
+/* 반응형 max 640px */
+@media (max-width: 640px) {
+  .task_list {
+    margin: 40px 0;
+    padding: 16px 20px;
+    li {
+      padding: 16px 0;
+    }
+  }
+
+  .task_detail {
+    margin: 40px 0;
+    padding: 20px;
+    .del_btn {
+      padding: 0;
+    }
+  }
+}

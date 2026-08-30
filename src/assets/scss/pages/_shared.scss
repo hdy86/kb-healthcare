@@ -162,3 +162,64 @@ h2 {
     }
   }
 }
+
+/* 반응형 max 640px */
+@media (max-width: 640px) {
+  header {
+    a {
+      font-size: 14px;
+    }
+    .auth_btn {
+      padding: 0;
+    }
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .input {
+    height: 40px;
+  }
+
+  .btn {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+
+    &.sm {
+      height: 32px;
+    }
+  }
+
+  .modal_wrap .modal_area {
+    padding: 20px;
+
+    .md_tit {
+      p {
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+    .md_cont {
+      margin: 16px 0 32px;
+    }
+    .md_btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+}

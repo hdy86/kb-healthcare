@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
     <QueryProvider>
       <header>
         <div className='inner'>
-          <div className='flex items-center gap-5'>
+          <div className='flex items-center gap-2 sm:gap-5'>
             <h1>KB Healthcare</h1>
             <Link
               className={`flex items-center justify-center gap-2 ${pathname === ROUTERS.DASHBOARD ? "on" : ""}`}
@@ -27,7 +27,7 @@ export default function Layout({ children }: LayoutProps) {
               <span>대시보드</span>
             </Link>
             <Link
-              className={`flex items-center gap-2 ${pathname.includes(ROUTERS.TASK) ? "on" : ""}`}
+              className={`flex items-center gap-1 sm:gap-2 ${pathname.includes(ROUTERS.TASK) ? "on" : ""}`}
               to={ROUTERS.TASK}
             >
               <FontAwesomeIcon icon={faList} size='lg' />

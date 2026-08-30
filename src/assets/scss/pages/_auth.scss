@@ -37,3 +37,24 @@
     border-radius: 4px;
   }
 }
+
+/* 반응형 max 640px */
+@media (max-width: 640px) {
+  .form_area {
+    padding: 40px 0;
+    gap: 16px;
+  }
+
+  .mypage_list {
+    padding: 40px 0;
+    gap: 16px;
+
+    p {
+      font-size: 14px;
+    }
+    span {
+      height: 40px;
+      font-size: 14px;
+    }
+  }
+}

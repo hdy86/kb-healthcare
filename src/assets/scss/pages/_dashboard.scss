@@ -31,3 +31,22 @@
     }
   }
 }
+
+/* 반응형 max 640px */
+@media (max-width: 640px) {
+  .dashboard_list {
+    flex-direction: column;
+    gap: 12px;
+    padding: 40px 0;
+
+    li {
+      height: 120px;
+      p {
+        font-size: 16px;
+      }
+      span {
+        font-size: 28px;
+      }
+    }
+  }
+}

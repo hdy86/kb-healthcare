@@ -94,7 +94,7 @@ export default function Page() {
           </>
         }
       >
-        <label htmlFor='reason' className='mb-3 block'>
+        <label htmlFor='reason' className='mb-3 block text-sm sm:text-base'>
           이 작업은 되돌릴 수 없습니다.
           <br />
           삭제하려면 아래 입력창에 <br />할 일의 ID ( <b>{id}</b> ) 를 정확히 입력해 주세요.
