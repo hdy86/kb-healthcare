@@ -11,6 +11,7 @@ export function useDeleteTask() {
       // 목록 캐시를 무효화해서 다음 방문 시 최신 상태로 다시 fetch되게 함
       queryClient.invalidateQueries({ queryKey: queryKeys.tasks });
       queryClient.removeQueries({ queryKey: queryKeys.taskDetail(id) });
+      queryClient.invalidateQueries({ queryKey: queryKeys.dashboard });
     },
   });
 }

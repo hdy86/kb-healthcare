@@ -37,6 +37,7 @@ export interface TaskListResponse {
 export interface TaskDetailResponse {
   title: string;
   memo: string;
+  status: TaskStatus;
   registerDatetime: string; // ISO date-time
 }
 

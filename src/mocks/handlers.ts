@@ -162,6 +162,7 @@ export const handlers = [
       return HttpResponse.json<TaskDetailResponse>({
         title: task.title,
         memo: task.memo,
+        status: task.status,
         registerDatetime: new Date().toISOString(),
       });
     },

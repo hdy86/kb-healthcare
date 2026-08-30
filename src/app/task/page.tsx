@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareCheck, faSquare } from "@fortawesome/free-solid-svg-icons";
 import * as ROUTERS from "@constants/routers";
 import { useTasks } from "@api/hooks/useTasks";
 import Loading from "@components/shared/loading";
@@ -43,6 +45,13 @@ export default function Page() {
           {tasks?.length > 0 ? (
             tasks?.map((item) => (
               <li key={item.id}>
+                <div className='task_check'>
+                  {item.status === "DONE" ? (
+                    <FontAwesomeIcon icon={faSquareCheck} size='lg' />
+                  ) : (
+                    <FontAwesomeIcon icon={faSquare} size='lg' className='text-gray-300' />
+                  )}
+                </div>
                 <Link to={`${ROUTERS.TASK}/${item.id}`}>
                   <p>{item.title || "-"}</p>
                   <span>{item.memo || "-"}</span>

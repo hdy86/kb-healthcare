@@ -56,7 +56,14 @@ export default function Page() {
             <button type='button' className='del_btn' onClick={() => setDeleteModalOpen(true)}>
               <FontAwesomeIcon icon={faTrash} size='lg' />
             </button>
-            <h3>{data?.title || "-"}</h3>
+            <div className='flex items-center gap-2'>
+              {data?.status === "DONE" ? (
+                <span className='task_tag done'>완료</span>
+              ) : (
+                <span className='task_tag'>미완료</span>
+              )}
+              <h3>{data?.title || "-"}</h3>
+            </div>
             <p>{data?.memo || "-"}</p>
           </div>
 

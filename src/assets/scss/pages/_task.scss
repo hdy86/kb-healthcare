@@ -2,17 +2,28 @@
 /*------------- TASK PAGE --------------*/
 /*======================================*/
 .task_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   margin: 60px 0;
-  padding: 40px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background-color: var(--background);
   text-align: left;
 
   li {
-    padding: 20px 0;
-    border-bottom: 2px dashed var(--surface);
+    position: relative;
+    width: calc(50% - 10px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background-color: var(--background);
 
+    .task_check {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
+    a {
+      display: block;
+      padding: 30px 30px 40px 60px;
+    }
     p {
       font-weight: 500;
     }
@@ -23,7 +34,11 @@
       color: var(--text-muted);
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-height: 1.4rem;
+      max-height: 2.8rem;
     }
 
     &.no_data {
@@ -44,7 +59,7 @@
 .task_detail {
   position: relative;
   margin: 60px 0;
-  padding: 40px;
+  padding: 30px 60px 30px 30px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background-color: var(--background);
@@ -82,19 +97,42 @@
   }
 }
 
+.task_tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background-color: var(--disabled);
+  font-size: 14px;
+  color: var(--white);
+
+  &.done {
+    background-color: var(--success);
+  }
+}
+
 /* 반응형 max 640px */
 @media (max-width: 640px) {
   .task_list {
+    gap: 16px;
     margin: 40px 0;
-    padding: 16px 20px;
     li {
-      padding: 16px 0;
+      width: 100%;
+      .task_check {
+        top: 20px;
+        left: 20px;
+      }
+      a {
+        padding: 20px 20px 28px 50px;
+      }
     }
   }
 
   .task_detail {
     margin: 40px 0;
-    padding: 20px;
+    padding: 20px 40px 20px 20px;
     .del_btn {
       padding: 0;
     }
