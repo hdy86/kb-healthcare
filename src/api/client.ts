@@ -18,10 +18,10 @@ export function getAccessToken() {
  * "로그인 안 됨" 상태가 감지됐을 때(RequireAuth 등), 그게 세션 만료로 인한 것인지 아니면 방금 사용자가 직접 로그아웃한 것인지 구분하기 위한 일회성 플래그입니다.
  *
  * 사용 흐름:
- *   1. useLogout()이 로그아웃을 시작하며 markLogout() 호출
- *   2. RequireAuth가 !isAuthenticated를 감지했을 때 consumeSkipToast()로 확인
- *      → true였으면(의도된 로그아웃) 안내 토스트를 띄우지 않고 조용히 리다이렉트
- *      → false였으면(세션 만료/미로그인 상태로 직접 접근) 안내 토스트를 띄움
+ * 1. useLogout()이 로그아웃을 시작하며 markLogout() 호출
+ * 2. RequireAuth가 !isAuthenticated를 감지했을 때 consumeSkipToast()로 확인
+ *   → true였으면(의도된 로그아웃) 안내 토스트를 띄우지 않고 조용히 리다이렉트
+ *   → false였으면(세션 만료/미로그인 상태로 직접 접근) 안내 토스트를 띄움
  */
 let skipAuthToast = false;
 
@@ -68,10 +68,7 @@ httpClient.interceptors.request.use((config) => {
 
 let refreshPromise: Promise<boolean> | null = null;
 
-/**
- * 동시에 여러 요청이 401을 맞아도 refresh는 한 번만 실행되도록 dedupe.
- * 401 인터셉터뿐 아니라, 앱 부트스트랩 시점의 세션 복구(restoreSession)에도 그대로 재사용합니다.
- */
+// 동시에 여러 요청이 401을 맞아도 refresh는 한 번만 실행되도록 dedupe
 export async function refreshAccessToken(): Promise<boolean> {
   if (!refreshPromise) {
     // 인터셉터 재귀 호출을 피하기 위해 httpClient가 아닌 별도 axios 인스턴스로 호출
